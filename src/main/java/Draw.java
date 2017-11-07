@@ -5,8 +5,9 @@ import javax.swing.JLabel;
 public class Draw {
 	
 	
-	public Draw(JLabel jlabel, int x, int y) {
+	public Draw(Graphics g, int x, int y) {		
+					
+		g.drawOval(x,y, 45, 45);
 		
-		jlabel.getGraphics().drawOval(x,y, 45, 45);
 	}
 }
