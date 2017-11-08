@@ -1,4 +1,6 @@
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -6,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -32,6 +35,14 @@ public class Bomen {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(758, 62, 321, 546);
 		mainWindow.getContentPane().add(scrollPane);
+		
+		JButton reset = new JButton("Reset");
+		reset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		bomen.add(reset);
 
 		DefaultListModel<String> lijstB = new DefaultListModel<String>();
 		for (int i = 0; i < lijst.size(); i++) {
@@ -111,7 +122,7 @@ public class Bomen {
 
 		});
 
-		// bomen.repaint();
+		mainWindow.repaint();
 	}
 
 	public void paintComponent(Graphics g, int x, int y) {

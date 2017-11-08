@@ -85,6 +85,8 @@ public class GUI {
 		
 		JButton grootte = new JButton("Grootte");
 		toolBar.add(grootte);			
+		
+		
 				
 		guiCount = mainWindow.getContentPane().getComponentCount();
 		
