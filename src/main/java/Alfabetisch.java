@@ -1,6 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.TreeSet;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -79,7 +82,15 @@ public class Alfabetisch {
 	}
 	
 	private JList<String> sortLijst(ArrayList<Plant> lijst) {
-
+		Collection<String> namen = 
+			    new TreeSet<String>(Collator.getInstance());
+			
+		for (int i =0; i<lijst.size(); i++) {
+			namen.add(lijst.get(i).plantnaam);
+		}
+		namen.add("UK");
+		namen.add("Germany");
+		namen.add("Australia");
 
 		
 		
