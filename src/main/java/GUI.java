@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
+import javax.swing.JScrollPane;
 
 public class GUI {
 
@@ -72,19 +73,17 @@ public class GUI {
 		});
 		toolBar.add(btnSiertuin);
 		
-		JButton alfabetisch = new JButton("Alfabetisch");
-		alfabetisch.addActionListener(new ActionListener() {
+		JButton btnLijst = new JButton("Overzicht");
+		btnLijst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//alfabetisch();
+				Alfabetisch alfabetisch = new Alfabetisch(mainWindow, guiCount, plantenlijst);
 			}
 		});
-		toolBar.add(alfabetisch);
+		toolBar.add(btnLijst);
 		
-		JButton maand = new JButton("Maand");
-		toolBar.add(maand);
+				
 		
-		JButton grootte = new JButton("Grootte");
-		toolBar.add(grootte);			
+		
 		
 		
 				

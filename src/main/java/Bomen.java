@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +21,7 @@ public class Bomen {
 	private int guiCount;
 	private JLabel bomen;
 
-	public Bomen(JFrame mainWindow, int guiCount, final ArrayList<Plant> lijst) {
+	public Bomen(final JFrame mainWindow, int guiCount, final ArrayList<Plant> lijst) {
 
 		while (mainWindow.getContentPane().getComponentCount() > guiCount) {
 			mainWindow.getContentPane().remove(guiCount);
@@ -37,9 +38,10 @@ public class Bomen {
 		mainWindow.getContentPane().add(scrollPane);
 		
 		JButton reset = new JButton("Reset");
+		reset.setBounds(630,1, 100, 50);
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				mainWindow.repaint();
 			}
 		});
 		bomen.add(reset);
@@ -57,7 +59,7 @@ public class Bomen {
 		bomenLijst.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
 
-				bomen.setIcon(bomenIcon);
+				
 				int c = 0;
 				String selectedString = bomenLijst.getSelectedValue().toString();
 
@@ -126,7 +128,7 @@ public class Bomen {
 	}
 
 	public void paintComponent(Graphics g, int x, int y) {
-
+		g.setColor(Color.red);
 		g.drawOval(x, y, 45, 45);
 
 	}
