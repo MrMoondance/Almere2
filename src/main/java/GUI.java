@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,13 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 import javax.swing.JScrollPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class GUI {
 
 	private JFrame mainWindow;
 	private ArrayList<Plant> plantenlijst;	
 	private int guiCount;
-
 	
 
 	/**
@@ -76,10 +78,40 @@ public class GUI {
 		JButton btnLijst = new JButton("Overzicht");
 		btnLijst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Alfabetisch alfabetisch = new Alfabetisch(mainWindow, guiCount, plantenlijst);
+				Overzicht overzicht = new Overzicht(mainWindow, guiCount, plantenlijst);
 			}
 		});
 		toolBar.add(btnLijst);
+		
+		JButton btnKalender = new JButton("Kalender");	
+		btnKalender.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {						
+				Kalender kalender = new Kalender(mainWindow, guiCount, plantenlijst);				
+			}
+		});
+		toolBar.add(btnKalender);
+		
+		JToolBar toolBar2 = new JToolBar();
+		toolBar2.setBounds(570, 11, 511, 39);
+		mainWindow.getContentPane().add(toolBar2);
+		
+		JTextField textField = new JTextField();
+		textField.setBounds(1, 1, 10, 10);
+		toolBar2.add(textField);
+		textField.setColumns(1);
+		
+		JTextField textField2 = new JTextField();
+		textField2.setBounds(1, 1, 10, 10);
+		toolBar2.add(textField2);
+		textField2.setColumns(1);
+		
+		JTextField textField3 = new JTextField();
+		textField3.setBounds(1, 1, 10, 10);
+		toolBar2.add(textField3);
+		textField3.setColumns(1);
+		
+		
+		
 		
 				
 		
