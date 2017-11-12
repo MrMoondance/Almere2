@@ -76,7 +76,7 @@ public class GUI {
 		JButton btnLijst = new JButton("Overzicht");
 		btnLijst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Alfabetisch alfabetisch = new Alfabetisch(mainWindow, guiCount, plantenlijst);
+				//Alfabetisch alfabetisch = new Alfabetisch(mainWindow, guiCount, plantenlijst);
 			}
 		});
 		toolBar.add(btnLijst);

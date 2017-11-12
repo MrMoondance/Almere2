@@ -32,13 +32,10 @@ public class ReadInfo {
 	    	    plantenlijst.add(plant);
 	    	    
 	    	}
-	    	if (r > 90) {
-	    		System.out.println(r);
-	    	}
+	    	
 	    	
 	    	if (plantnaam == null) {
-	    		break;
-	    		//TODO slim lezen excel file
+	    		break;	    		
 	    	}
 	    	
 	    }

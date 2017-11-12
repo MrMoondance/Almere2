@@ -74,7 +74,6 @@ public class Bomen {
 						coord = lijst.get(i).coordinaten;
 					}
 				}
-				System.out.println(coord);
 				c = 0;
 				while (coord.charAt(c) != ',' && coord.charAt(c) != '.') {
 
