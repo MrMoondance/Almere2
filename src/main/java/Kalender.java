@@ -69,5 +69,7 @@ public class Kalender {
 			}
 		});
 	}
+	
+	//TODO maand in lijst aanvinken. lijst alle acties van aangevinkte maanden. klikken gaat naar overzicht voor die plant
 
 }

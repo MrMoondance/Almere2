@@ -27,6 +27,9 @@ public class ReadInfo {
 	    	String referentie = readExcel(r,5);
 	    	String tuin = readExcel(r,6);
 	    	String coordinaten = String.valueOf(readExcel(r,7));
+	    	
+	    	//TODO int x,y;
+	    	
 	    	if (plantnaam != null) {
 	    		Plant plant = new Plant(plantnaam, maat, aantal, prijsPerStuk, prijsTotaal, referentie, tuin, coordinaten);
 	    	    plantenlijst.add(plant);

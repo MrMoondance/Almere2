@@ -106,5 +106,5 @@ public class Siertuin {
 	public void setSiertuin(JLabel siertuin) {
 		this.siertuin = siertuin;
 	}
-
+	//TODO op kaart klikken naar overzicht, zelfde als bomen
 }

@@ -38,4 +38,7 @@ public class Overzicht {
 		
 		mainWindow.repaint();
 	}
+	
+	//TODO groot tekstveld beschrijving
+	//TODO groot tekstveld actielijst
 }

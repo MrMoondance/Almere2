@@ -141,4 +141,7 @@ public class GUI {
 	public void setPlantenlijst(ArrayList<Plant> plantenlijst) {
 		this.plantenlijst = plantenlijst;
 	}
+	
+	//Acties opslaan en lezen
+	//planten kunnen aanmaken en verwijderen + manier om coordinaten te krijgen
 }
