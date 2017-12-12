@@ -3,54 +3,45 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
-public class ReadInfo {
-	
-	public static ArrayList<Plant> getPlantenlijst() {
+public class ReadAction {
+	public static ArrayList<Action> getActionlijst() {
 		
-		ArrayList<Plant> plantenlijst = new ArrayList<Plant>();
+		ArrayList<Action> actionLijst = new ArrayList<Action>();
 		
 		int rows = 1000; // No of rows	    	    
 	    for(int r = 2; r < rows; r++) {
 	    	
-	    	
-	    	String plantnaam = readExcel(r,0);
-	    	String maat = readExcel(r,1);
-	    	String aantal = readExcel(r,2);
-	    	String prijsPerStuk = readExcel(r,3);
-	    	String prijsTotaal = readExcel(r,4);
-	    	String referentie = readExcel(r,5);
-	    	String tuin = readExcel(r,6);
-	    	String coordinaten = String.valueOf(readExcel(r,7));
-	    	
-	    	//TODO int x,y;
-	    	
-	    	if (plantnaam != null) {
-	    		Plant plant = new Plant(plantnaam, maat, aantal, prijsPerStuk, prijsTotaal, referentie, tuin, coordinaten);
-	    	    plantenlijst.add(plant);
-	    	    
-	    	}
-	    	
-	    	
-	    	if (plantnaam == null) {
+	    	String plant = readExcel(r,0);
+	    	String maand = String.valueOf(readExcel(r,1));
+	    	String actie = readExcel(r,2);
+	    
+	    
+	    	if (plant != null) {
+	    		Action action = new Action(plant,maand,actie);
+	    		actionLijst.add(action);    	    
+	    	}    	
+	    	if (plant == null) {
 	    		break;	    		
 	    	}
-	    	
 	    }
-	    return plantenlijst;
+		return actionLijst;
+	
 	}
 	
-	private static String readExcel(int r, int c) {
+	
+	
+	
+private static String readExcel(int r, int c) {
 		
 		try {
 		    POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream("Voorstel plantenlijst.xls"));
 		    HSSFWorkbook wb = new HSSFWorkbook(fs);
-		    HSSFSheet sheet = wb.getSheetAt(1);
+		    HSSFSheet sheet = wb.getSheetAt(2);
 		    HSSFRow row;		    	    
 		   		    
 		    row = sheet.getRow(r);

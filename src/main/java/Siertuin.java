@@ -49,8 +49,6 @@ public class Siertuin {
 			Plant plant = lijst.get(i);
 			if (plant.tuin.equals("s")) {				
 				lijstB.addElement(plant.referentie + ": " + plant.plantnaam);
-				System.out.println(plant.plantnaam);
-				System.out.println(plant.tuin);
 			}			
 		}		
 
@@ -76,8 +74,7 @@ public class Siertuin {
 					if (lijst.get(i).referentie.equals(ref)) {
 						coord = lijst.get(i).coordinaten;
 					}
-				}
-				System.out.println(coord);
+				}				
 				c = 0;
 				while (coord.charAt(c) != ',' && coord.charAt(c) != '.') {
 
@@ -100,7 +97,6 @@ public class Siertuin {
 	public void paintComponent(Graphics g, int x, int y) {
 		g.setColor(Color.red);
 		g.drawOval(x, y, 45, 45);
-
 	}
 	
 	public JLabel getSiertuin() {
@@ -110,5 +106,5 @@ public class Siertuin {
 	public void setSiertuin(JLabel siertuin) {
 		this.siertuin = siertuin;
 	}
-
+	//TODO op kaart klikken naar overzicht, zelfde als bomen
 }

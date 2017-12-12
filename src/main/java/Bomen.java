@@ -74,7 +74,6 @@ public class Bomen {
 						coord = lijst.get(i).coordinaten;
 					}
 				}
-				System.out.println(coord);
 				c = 0;
 				while (coord.charAt(c) != ',' && coord.charAt(c) != '.') {
 
@@ -95,10 +94,10 @@ public class Bomen {
 			public void mouseClicked(MouseEvent e) {
 				int x = e.getX() - 22;
 				int y = e.getY() - 22;
-
-				String sX = String.valueOf(x);
-				String sY = String.valueOf(y);
-				System.out.println(sX + "," + sY);// these co-ords are relative to the component
+				muisklik(x,y, lijst);
+				//String sX = String.valueOf(x);
+				//String sY = String.valueOf(y);
+				//System.out.println(sX + "," + sY);// these co-ords are relative to the component
 
 			}
 
@@ -139,6 +138,15 @@ public class Bomen {
 
 	public void setBomen(JLabel bomen) {
 		this.bomen = bomen;
+	}
+	
+	public void muisklik(int x, int y, ArrayList<Plant> lijst) {
+		for (int i = 0; i < lijst.size(); i++) {
+			Plant plant = lijst.get(i);
+			//TODO klikken op kaart-> naar overzicht
+			
+			
+		}
 	}
 
 }
