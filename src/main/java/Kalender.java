@@ -47,12 +47,12 @@ public class Kalender {
 	   
 
 		
-		
+		buttonCreator(kalender, 10, 21, "test2");
 		
 		mainWindow.repaint();
 	
 	}
-	//buttonCreator(kalender, 10, 21, "test2");
+	
 	private void buttonCreator(JPanel kalender, int x, int y, String tekst) {
 		
 		final JButton button = new JButton();
