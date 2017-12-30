@@ -126,20 +126,12 @@ public class Bomen {
 		mainWindow.repaint();
 	}
 
-	public void paintComponent(Graphics g, int x, int y) {
+	private void paintComponent(Graphics g, int x, int y) {
 		g.setColor(Color.red);
 		g.drawOval(x, y, 45, 45);
 
 	}
-
-	public JLabel getBomen() {
-		return bomen;
-	}
-
-	public void setBomen(JLabel bomen) {
-		this.bomen = bomen;
-	}
-	
+		
 	public void muisklik(int x, int y, ArrayList<Plant> lijst) {
 		for (int i = 0; i < lijst.size(); i++) {
 			Plant plant = lijst.get(i);
