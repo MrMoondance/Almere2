@@ -21,7 +21,7 @@ public class Overzicht {
 		while (mainWindow.getContentPane().getComponentCount() > guiCount) {
 			mainWindow.getContentPane().remove(guiCount);
 		}
-		
+				
 		ArrayList<Action> actionlijst = ReadAction.getActionlijst();
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -62,7 +62,13 @@ public class Overzicht {
 		omschrijvingScroll.setBounds(10, 62, 730, 346);
 		mainWindow.getContentPane().add(omschrijvingScroll);
 		
+		JTextArea actionField = new JTextArea();
+		actionField.setBounds(1, 1, 730, 1000);
+		actionField.setText(" test");
 		
+		JScrollPane actionScroll = new JScrollPane(actionField);
+		actionScroll.setBounds(10, 450, 730, 250);
+		mainWindow.getContentPane().add(actionScroll);
 		
 		
 		mainWindow.repaint();
@@ -74,6 +80,17 @@ public class Overzicht {
 		
 		JTextField omschrijvingField = new JTextField();
 		omschrijvingField.setBounds(10, 62, 730, 546);
+	}
+	
+	private void action(Plant plant) {
+		ArrayList<Action> actionLijst = plant.action;
+		
+		JTextField actionField = new JTextField();
+		actionField.setBounds(10, 62, 730, 546);
+		
+		
+		
+		
 	}
 	
 	//TODO groot tekstveld beschrijving

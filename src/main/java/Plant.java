@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Plant {
 	
@@ -8,11 +9,11 @@ public String tuin;
 public String coordinaten;
 public String plaatjes;
 public String omschrijving;
+public ArrayList<Action> action;
 
 
 
-
-	public Plant(String plantnaam, String aantal, String referentie, String tuin, String coordinaten, String plaatjes, String omschrijving) {
+	public Plant(String plantnaam, String aantal, String referentie, String tuin, String coordinaten, String plaatjes, String omschrijving, ArrayList<Action> action) {
 		this.plantnaam = plantnaam;
 		this.aantal = aantal;
 		this.referentie = referentie;
@@ -20,7 +21,7 @@ public String omschrijving;
 		this.coordinaten = coordinaten;
 		this.plaatjes = plaatjes;
 		this.omschrijving = omschrijving;
-		
+		this.action = action;
 		
 	}
 }

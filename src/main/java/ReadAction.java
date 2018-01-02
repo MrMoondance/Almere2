@@ -33,10 +33,39 @@ public class ReadAction {
 	
 	}
 	
+	public static ArrayList<Action> getSpecificPLant(String name) {
+		
+		ArrayList<Action> actionLijst = new ArrayList<Action>();
+		int rows = 1000;
+		for (int r=2; r< rows; r++) {
+			
+			if (readExcel(r,0) == null) {
+	    		break;	    		
+	    	}
+			if (name.equals(String.valueOf(readExcel(r,0)))) {
+				
+				
+				
+				String plant = readExcel(r,0);
+		    	String maand = String.valueOf(readExcel(r,1));
+		    	String actie = readExcel(r,2);
+		    
+		    
+		    	
+		    	Action action = new Action(plant,maand,actie);
+		    	actionLijst.add(action);    	    
+		    	    	
+		    	
+			}
+			
+			
+			
+		}
+		return actionLijst;		
+	}
 	
 	
-	
-private static String readExcel(int r, int c) {
+	private static String readExcel(int r, int c) {
 		
 		try {
 		    POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream("Voorstel plantenlijst.xls"));

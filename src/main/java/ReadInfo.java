@@ -18,7 +18,9 @@ public class ReadInfo {
 		int rows = 1000; // No of rows	    	    
 	    for(int r = 2; r < rows; r++) {
 	    	
-	    	
+	    	if (readExcel(r,0) == null) {
+	    		break;	    		
+	    	}
 		    	String plantnaam = readExcel(r,0);
 		    	String aantal = readExcel(r,1);	    
 		    	String referentie = readExcel(r,2);
@@ -26,15 +28,14 @@ public class ReadInfo {
 		    	String coordinaten = String.valueOf(readExcel(r,4));
 		    	String plaatjes = String.valueOf(readExcel(r,5));
 		    	String omschrijving = String.valueOf(readExcel(r,6));
+		    	ArrayList<Action> action = ReadAction.getSpecificPLant(plantnaam);
 		    	    	
 		    	if (plantnaam != null) {
-		    		Plant plant = new Plant(plantnaam, aantal, referentie, tuin, coordinaten, plaatjes, omschrijving);
+		    		Plant plant = new Plant(plantnaam, aantal, referentie, tuin, coordinaten, plaatjes, omschrijving, action);
 		    		plantenlijst.add(plant);	    	    
 		    	}
 		    		    	
-		    	if (plantnaam == null) {
-		    		break;	    		
-		    	}
+		    	
 	    	
 	    }
 	    return plantenlijst;
