@@ -6,6 +6,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -34,12 +36,12 @@ public class Overzicht {
 		}
 		Collections.sort(lijstB);
 		
-		DefaultListModel<String> lijstC = new DefaultListModel<String>();
+		DefaultListModel<String> lijstModel = new DefaultListModel<String>();
 		for (int i = 0; i < lijstB.size(); i++) {		
-			lijstC.addElement(lijstB.get(i));			
+			lijstModel.addElement(lijstB.get(i));			
 		}
 		
-		final JList<String> bomenLijst = new JList<String>(lijstC);
+		final JList<String> bomenLijst = new JList<String>(lijstModel);
 		scrollPane.setViewportView(bomenLijst);
 		
 		bomenLijst.addListSelectionListener(new ListSelectionListener() {
@@ -51,7 +53,27 @@ public class Overzicht {
 			}
 		});
 		
+		
+		JTextArea omschrijvingField = new JTextArea();			
+		omschrijvingField.setBounds(1, 1, 730, 1000);
+		omschrijvingField.setText(" test");
+		
+		JScrollPane omschrijvingScroll = new JScrollPane(omschrijvingField);
+		omschrijvingScroll.setBounds(10, 62, 730, 346);
+		mainWindow.getContentPane().add(omschrijvingScroll);
+		
+		
+		
+		
 		mainWindow.repaint();
+	}
+	
+	private void description(Plant plant) {
+		
+		String omschrijving = plant.omschrijving;
+		
+		JTextField omschrijvingField = new JTextField();
+		omschrijvingField.setBounds(10, 62, 730, 546);
 	}
 	
 	//TODO groot tekstveld beschrijving

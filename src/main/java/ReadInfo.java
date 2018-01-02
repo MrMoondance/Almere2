@@ -19,27 +19,22 @@ public class ReadInfo {
 	    for(int r = 2; r < rows; r++) {
 	    	
 	    	
-	    	String plantnaam = readExcel(r,0);
-	    	String maat = readExcel(r,1);
-	    	String aantal = readExcel(r,2);
-	    	String prijsPerStuk = readExcel(r,3);
-	    	String prijsTotaal = readExcel(r,4);
-	    	String referentie = readExcel(r,5);
-	    	String tuin = readExcel(r,6);
-	    	String coordinaten = String.valueOf(readExcel(r,7));
-	    	
-	    	//TODO int x,y;
-	    	
-	    	if (plantnaam != null) {
-	    		Plant plant = new Plant(plantnaam, maat, aantal, prijsPerStuk, prijsTotaal, referentie, tuin, coordinaten);
-	    	    plantenlijst.add(plant);
-	    	    
-	    	}
-	    	
-	    	
-	    	if (plantnaam == null) {
-	    		break;	    		
-	    	}
+		    	String plantnaam = readExcel(r,0);
+		    	String aantal = readExcel(r,1);	    
+		    	String referentie = readExcel(r,2);
+		    	String tuin = readExcel(r,3);
+		    	String coordinaten = String.valueOf(readExcel(r,4));
+		    	String plaatjes = String.valueOf(readExcel(r,5));
+		    	String omschrijving = String.valueOf(readExcel(r,6));
+		    	    	
+		    	if (plantnaam != null) {
+		    		Plant plant = new Plant(plantnaam, aantal, referentie, tuin, coordinaten, plaatjes, omschrijving);
+		    		plantenlijst.add(plant);	    	    
+		    	}
+		    		    	
+		    	if (plantnaam == null) {
+		    		break;	    		
+		    	}
 	    	
 	    }
 	    return plantenlijst;
