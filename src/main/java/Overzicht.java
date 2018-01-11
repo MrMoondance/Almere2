@@ -78,15 +78,13 @@ public class Overzicht {
 		
 		String omschrijving = plant.omschrijving;
 		
-		JTextField omschrijvingField = new JTextField();
-		omschrijvingField.setBounds(10, 62, 730, 546);
+		
 	}
 	
 	private void action(Plant plant) {
 		ArrayList<Action> actionLijst = plant.action;
 		
-		JTextField actionField = new JTextField();
-		actionField.setBounds(10, 62, 730, 546);
+		
 		
 		
 		

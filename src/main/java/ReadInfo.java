@@ -28,7 +28,7 @@ public class ReadInfo {
 		    	String coordinaten = String.valueOf(readExcel(r,4));
 		    	String plaatjes = String.valueOf(readExcel(r,5));
 		    	String omschrijving = String.valueOf(readExcel(r,6));
-		    	ArrayList<Action> action = ReadAction.getSpecificPLant(plantnaam);
+		    	ArrayList<Action> action = ReadAction.getSpecificColumn(plantnaam,0);
 		    	    	
 		    	if (plantnaam != null) {
 		    		Plant plant = new Plant(plantnaam, aantal, referentie, tuin, coordinaten, plaatjes, omschrijving, action);

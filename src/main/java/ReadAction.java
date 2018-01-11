@@ -33,7 +33,7 @@ public class ReadAction {
 	
 	}
 	
-	public static ArrayList<Action> getSpecificPLant(String name) {
+	public static ArrayList<Action> getSpecificColumn(String name, int reqC) {
 		
 		ArrayList<Action> actionLijst = new ArrayList<Action>();
 		int rows = 1000;
@@ -42,7 +42,7 @@ public class ReadAction {
 			if (readExcel(r,0) == null) {
 	    		break;	    		
 	    	}
-			if (name.equals(String.valueOf(readExcel(r,0)))) {
+			if (name.equals(String.valueOf(readExcel(r,reqC)))) {
 				
 				
 				
@@ -63,6 +63,12 @@ public class ReadAction {
 		}
 		return actionLijst;		
 	}
+		
+	
+	
+	
+	
+	
 	
 	
 	private static String readExcel(int r, int c) {
