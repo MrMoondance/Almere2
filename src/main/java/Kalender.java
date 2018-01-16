@@ -25,17 +25,8 @@ public class Kalender {
 	JPanel kalender;
 	Maand[] maand = new Maand[12];
 	
-	public Kalender(final JFrame mainWindow, int guiCount, final ArrayList<Plant> lijst) {
+	public Kalender(final JFrame mainWindow, final ArrayList<Plant> lijst) {	
 		
-		while (mainWindow.getContentPane().getComponentCount() > guiCount) {
-			mainWindow.getContentPane().remove(guiCount);
-		}
-		
-		Calendar now = Calendar.getInstance();	     
-	    
-	    
-	
-	 
 		String[] maandNaam = {"januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"};
 		for (int i = 0; i<12 ; i++) {
 			
@@ -55,15 +46,14 @@ public class Kalender {
 			maand[i] = m;			
 		}		
 		
-		int nu = now.get(Calendar.MONTH);		
+		Calendar cal = Calendar.getInstance();	    
+		int nu = cal.get(Calendar.MONTH);		
 		maand[nu].cb.setSelected(true);
 		
-		if (nu != 11) {
-			maand[nu+1].cb.setSelected(true);		
-		} else {
-			maand[nu-11].cb.setSelected(true);
-		}
-		
+		if (nu == 11) {
+			nu = nu-12;
+		} 
+		maand[nu+1].cb.setSelected(true);
 		createList();
 		mainWindow.getContentPane().add(kalender);		
 		mainWindow.repaint();	
@@ -78,9 +68,8 @@ public class Kalender {
 		
 		
 		int x=1;
-		int y=10;
+		int y=10;		
 		
-		System.out.println("te");	
 		for (int i = 0; i<12 ; i++) {
 			Maand m = maand[i];
 			if (m.cb.isSelected()) {
@@ -107,10 +96,7 @@ public class Kalender {
 						x = x+260;
 					}	
 				}
-				y= y+30;
-				
-				
-				System.out.println("true");
+				y= y+30;				
 			}
 		}	
 		
@@ -137,8 +123,4 @@ public class Kalender {
 	    JLabel label = new JLabel(actie);
 	    label.setBounds(x+17, y+20, 235, 20);
 	    kalender.add(label);
-	}
-	
-	//TODO maand in lijst aanvinken. lijst alle acties van aangevinkte maanden. klikken gaat naar overzicht voor die plant
-
-}
+	}}

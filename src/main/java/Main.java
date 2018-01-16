@@ -1,13 +1,27 @@
+import java.awt.EventQueue;
 import java.util.ArrayList;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		ArrayList<Plant> plantenlijst = ReadInfo.getPlantenlijst();
+		final ArrayList<Plant> plantenlijst = ReadInfo.getPlantenlijst();
 		
 		
-		GUI mainWindow = GUI.appReturn(plantenlijst);
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI window = new GUI(plantenlijst);					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		
+		
+		
 		
 		
 		

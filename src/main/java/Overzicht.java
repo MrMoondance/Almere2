@@ -14,34 +14,28 @@ import javax.swing.event.ListSelectionListener;
 
 public class Overzicht {
 	
-	public Overzicht(final JFrame mainWindow, int guiCount, final ArrayList<Plant> lijst) {
-		
-		
-		
-		while (mainWindow.getContentPane().getComponentCount() > guiCount) {
-			mainWindow.getContentPane().remove(guiCount);
-		}
+	public Overzicht(final JFrame mainWindow, final ArrayList<Plant> lijst) {		
 				
 		ArrayList<Action> actionlijst = ReadAction.getActionlijst();
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(758, 62, 321, 546);
-		mainWindow.getContentPane().add(scrollPane);
+		
 		
 		List<String> lijstB=new ArrayList();
-		for (int i = 0; i < lijst.size(); i++) {
-			Plant plant = lijst.get(i);
-			lijstB.add(plant.plantnaam);
-			
+		for (Plant plant : lijst) {			
+			lijstB.add(plant.plantnaam);			
 		}
 		Collections.sort(lijstB);
 		
 		DefaultListModel<String> lijstModel = new DefaultListModel<String>();
-		for (int i = 0; i < lijstB.size(); i++) {		
-			lijstModel.addElement(lijstB.get(i));			
+		for (String plant : lijstB) {		
+			lijstModel.addElement(plant);			
 		}
 		
 		final JList<String> bomenLijst = new JList<String>(lijstModel);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(758, 62, 321, 546);
+		mainWindow.getContentPane().add(scrollPane);
 		scrollPane.setViewportView(bomenLijst);
 		
 		bomenLijst.addListSelectionListener(new ListSelectionListener() {

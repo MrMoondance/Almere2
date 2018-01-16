@@ -15,62 +15,47 @@ import javax.swing.JTextField;
 
 public class GUI {
 
-	private JFrame mainWindow;
-	private ArrayList<Plant> plantenlijst;	
-	private int guiCount;
+	private JFrame mainFrame;
+	private ArrayList<Plant> plantenlijst;			
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static GUI appReturn(final ArrayList<Plant> plantenlijst) {
-		final GUI window = new GUI();
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					window.setPlantenlijst(plantenlijst);
-					window.getFrame().setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		return window;
+	public GUI(ArrayList<Plant> lijst) {
+		
+		plantenlijst = lijst;		
+		
+		mainFrame = new JFrame();
+		
+		mainFrame.setBounds(100, 50, 1107, 781);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.getContentPane().setLayout(null);
+		mainFrame.setVisible(true);		
+		
+		JToolBar toolBar = makeToolBar();
+		mainFrame.getContentPane().add(toolBar);
 	}
-
-	/**
-	 * Create the application.
-	 */
-	public GUI() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		mainWindow = new JFrame();
-		mainWindow.setBounds(100, 50, 1107, 781);
-		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainWindow.getContentPane().setLayout(null);
+	
+	JToolBar makeToolBar() {
 		
 		JToolBar toolBar = new JToolBar();
 		toolBar.setBounds(10, 11, 560, 39);
-		mainWindow.getContentPane().add(toolBar);
-		
-		
+			
 		JButton btnBomen = new JButton("Bomen");	
 		btnBomen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {						
-				Bomen bomen = new Bomen(mainWindow, guiCount, plantenlijst);				
+			public void actionPerformed(ActionEvent arg0) {	
+				while (mainFrame.getContentPane().getComponentCount() > 1) {
+					mainFrame.getContentPane().remove(1);
+				}
+				Bomen bomen = new Bomen(mainFrame, plantenlijst);				
 			}
 		});
 		toolBar.add(btnBomen);
 		
 		JButton btnSiertuin = new JButton("Siertuin");
 		btnSiertuin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {				
-				Siertuin siertuin = new Siertuin(mainWindow, guiCount, plantenlijst);				
+			public void actionPerformed(ActionEvent arg0) {	
+				while (mainFrame.getContentPane().getComponentCount() > 1) {
+					mainFrame.getContentPane().remove(1);
+				}
+				Siertuin siertuin = new Siertuin(mainFrame, plantenlijst);				
 			}
 		});
 		toolBar.add(btnSiertuin);
@@ -78,70 +63,26 @@ public class GUI {
 		JButton btnLijst = new JButton("Overzicht");
 		btnLijst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Overzicht overzicht = new Overzicht(mainWindow, guiCount, plantenlijst);
+				while (mainFrame.getContentPane().getComponentCount() > 1) {
+					mainFrame.getContentPane().remove(1);
+				}
+				Overzicht overzicht = new Overzicht(mainFrame, plantenlijst);
 			}
 		});
 		toolBar.add(btnLijst);
 		
 		JButton btnKalender = new JButton("Kalender");	
 		btnKalender.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {						
-				Kalender kalender = new Kalender(mainWindow, guiCount, plantenlijst);				
+			public void actionPerformed(ActionEvent arg0) {	
+				while (mainFrame.getContentPane().getComponentCount() > 1) {
+					mainFrame.getContentPane().remove(1);
+				}
+				Kalender kalender = new Kalender(mainFrame, plantenlijst);				
 			}
 		});
-		toolBar.add(btnKalender);
+		toolBar.add(btnKalender);		
 		
-		JToolBar toolBar2 = new JToolBar();
-		toolBar2.setBounds(570, 11, 511, 39);
-		mainWindow.getContentPane().add(toolBar2);
-		
-		JTextField textField = new JTextField();
-		textField.setBounds(1, 1, 10, 10);
-		toolBar2.add(textField);
-		textField.setColumns(1);
-		
-		JTextField textField2 = new JTextField();
-		textField2.setBounds(1, 1, 10, 10);
-		toolBar2.add(textField2);
-		textField2.setColumns(1);
-		
-		JTextField textField3 = new JTextField();
-		textField3.setBounds(1, 1, 10, 10);
-		toolBar2.add(textField3);
-		textField3.setColumns(1);
-		
-		
-		
-		
-				
-		
-		
-		
-		
-				
-		guiCount = mainWindow.getContentPane().getComponentCount();
-		
+		return toolBar;		
 	}
-
-	
-	
-	
-	public JFrame getFrame() {		
-		return mainWindow;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.mainWindow = frame;
-	}
-	
-	public ArrayList<Plant> getPlantenlijst() {
-		return plantenlijst;
-	}
-
-	public void setPlantenlijst(ArrayList<Plant> plantenlijst) {
-		this.plantenlijst = plantenlijst;
-	}
-	
-	//Acties opslaan en lezen
 	//planten kunnen aanmaken en verwijderen + manier om coordinaten te krijgen
 }

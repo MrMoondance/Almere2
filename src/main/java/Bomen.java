@@ -17,15 +17,9 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class Bomen {
-	private int guiCount;
-	private JLabel bomen;
+public class Bomen {	
 
-	public Bomen(final JFrame mainWindow, int guiCount, final ArrayList<Plant> lijst) {
-
-		while (mainWindow.getContentPane().getComponentCount() > guiCount) {
-			mainWindow.getContentPane().remove(guiCount);
-		}
+	public Bomen(final JFrame mainWindow, final ArrayList<Plant> lijst) {		
 
 		final JLabel bomen = new JLabel("");
 		bomen.setBounds(10, 62, 730, 546);
@@ -97,29 +91,30 @@ public class Bomen {
 				muisklik(x,y, lijst);
 				//String sX = String.valueOf(x);
 				//String sY = String.valueOf(y);
-				//System.out.println(sX + "," + sY);// these co-ords are relative to the component
+				//System.out.println(sX + "," + sY);
 
 			}
 
-			public void mouseEntered(MouseEvent e) {
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub				
+			}
+
+			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-
+				
 			}
 
-			public void mouseExited(MouseEvent e) {
+			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-
+				
 			}
 
-			public void mousePressed(MouseEvent e) {
+			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-
+				
 			}
 
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
+			
 
 		});
 

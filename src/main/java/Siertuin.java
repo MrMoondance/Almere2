@@ -20,13 +20,10 @@ public class Siertuin {
 	JLabel siertuin;
 	
 	
-	public Siertuin(final JFrame mainWindow, int guiCount, final ArrayList<Plant> lijst) {
+	public Siertuin(final JFrame mainWindow, final ArrayList<Plant> lijst) {		
 		
-		while (mainWindow.getContentPane().getComponentCount() > guiCount) {
-			mainWindow.getContentPane().remove(guiCount);				
-		}
 		siertuin = new JLabel("");
-		siertuin.setBounds(10, 62, 730, 746);
+		siertuin.setBounds(10, 32, 730, 746);
 		mainWindow.getContentPane().add(siertuin);	
 		ImageIcon siertuinIcon = new ImageIcon("Siertuin.jpg");
 		siertuin.setIcon(siertuinIcon);
@@ -36,7 +33,7 @@ public class Siertuin {
 		mainWindow.getContentPane().add(scrollPane);
 		
 		JButton reset = new JButton("Reset");
-		reset.setBounds(630,1, 100, 50);
+		reset.setBounds(630,31, 100, 50);
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mainWindow.repaint();
